@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<meta name="description" content=""/>
+	<meta name="keywords" content=""/>
+	<title>demo - pageSlider</title>
+	<!--引入pageSlider所需样式表-->
+	<!-- <link rel="stylesheet" href="../dist/pageSlider.css"> -->
+	<!--引入zepto.js-->
+	<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.js"></script>
+	<style>
+		.box{width:100%;border:1px solid #999;}
+		.justify-list{ width:100%; padding:0; margin:0; text-align: justify; font-size:20px;}
+		.justify-list li{
+			display: inline-block;
+			width:50px;
+			height:50px;
+			margin:5px;
+			/* font-size:14px; */
+		}
+		.justify-list li:not(.extra) a{ display: block; height:100%; background:#FCC; }
+		.justify-list::after{ content: ''; display:inline-block; width:100%; height:0; margin:0; padding:0; overflow:hidden;}
+		/* .justify-list li.justify-fix{ display:inline-block; width:100%; height:0; margin:0; padding:0; overflow:hidden;} */
+
+	</style>
+<body>
+	<!--DOM结构-->
+	<div class="box">
+		<ul class="justify-list" id="test1">
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+			<li><a href="javascript:;"></a></li>
+		</ul>
+	</div>
+	
+	<script>
+		var oUl = document.getElementById('test1');
+		var aLis = oUl.querySelectorAll('li');
+		var preItemTop = 0;
+		var numPreLine = 0;
+		var numLastLine = 0;
+		var resetLiFontSize = false;
+		var oUlFontSize = getComputedStyle(oUl).fontSize;
+		if(aLis[0].style.fontSize==''){
+			resetLiFontSize = getComputedStyle(aLis[0]).fontSize==oUlFontSize?true:false;
+		}
+
+		oUl.style.fontSize = '0px';
+
+		var newNode = document.createElement('li');
+			newNode.className = "extra";
+			newNode.innerHTML = '<a href="javascript:;"></a>';
+		var blankNode = document.createTextNode(' \n');
+		var fragment = document.createDocumentFragment();
+
+		for(var i=0;i<aLis.length;i++){
+			if(preItemTop !== 0 && preItemTop !== aLis[i].offsetTop){
+				numPreLine = i;
+				break;
+			}
+			preItemTop = aLis[i].offsetTop;
+
+			if(resetLiFontSize){
+				aLis[i].style.fontSize = oUlFontSize;
+			}
+		}
+
+		numLastLine = aLis.length%numPreLine;
+
+		for(var i=0;i<numPreLine-numLastLine;i++){
+			fragment.appendChild(newNode.cloneNode(true));
+			fragment.appendChild(blankNode.cloneNode(true));
+		}
+
+
+		oUl.appendChild(fragment);
+	</script>
+</body>
+</html>

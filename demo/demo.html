@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+	<meta content="telephone=no" name="format-detection"/>
+	<title>demo - Justify</title>
+	<!--引入所需样式表-->
+	<link rel="stylesheet" href="../dist/justify.css">
+	<!--页面样式-->
+	<style>
+		.box{width:100%; border:1px solid #999;}
+		.justify-list li {
+		    width: 50px;
+		    height: 50px;
+		    margin: 5px;
+		    background: #FCC;
+		}
+	</style>
+<body>
+	<!--DOM结构-->
+	<div class="box">
+		<ul class="justify-list" id="test">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+
+	<!--引入justify.js脚本-->
+	<script src="../dist/justify.js"></script>
+
+	<script>
+		//取得ul标签对应的DOM对象
+		var oUl = document.getElementById('test');
+		//应用Justify,将ul标签对应的DOM对象传入
+		Justify.apply(oUl);
+	</script>
+</body>
+</html>
