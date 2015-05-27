@@ -28,8 +28,7 @@
             this.numLastLine = 0;
 
         this.opt = {
-            removeBtmGap: true
-
+            removeBtmGap: false
         };
 
         this.init(dom, options);

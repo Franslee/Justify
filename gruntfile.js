@@ -8,8 +8,8 @@ module.exports = function(grunt) {
         banner: '/**\n * <%= pkg.name %> <%= pkg.version %> \n * <%= pkg.author %> \n * https://github.com/Franslee/Justify \n * <%= grunt.template.today("yyyy-mm-dd") %> \n */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>.js',
-        dest: 'dist/<%= pkg.name %>.min.js'
+        src: 'src/justify.js',
+        dest: 'dist/justify.min.js'
       }
     },
     autoprefixer: {
