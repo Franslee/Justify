@@ -1,7 +1,7 @@
 {
   "name": "Justify",
   "version": "1.0",
-  "main": "Justify.js",
+  "main": "justify.js",
   "author": "Frans.Lee dmon@foxmail.com",
   "devDependencies": {
     "grunt": "^0.4.5",
