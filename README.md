@@ -7,7 +7,7 @@ Justify 是一个实现inline-block元素两端对齐布局的javascript插件�
 
 ## DEMO ##
 请用手机扫描以下二维码,以访问DEMO页面。
-#![github](http://franslee.github.io/Justify/qr_code.png "Justify.js DEMO") 
+#![github](http://franslee.github.io/Justify/qr_code.png "Justify.js DEMO")(http://franslee.github.io/Justify/demo/demo.html)
 
 ## 用法 ##
 
