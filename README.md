@@ -25,9 +25,10 @@ HTML结构
 	<li></li>
 	<li></li>
 	<li></li>
-	<!--...-->
+	<li></li>
+	<li></li>
 </ul>
-
+```
 
 在页面中引入组件所需样式表文件justify.css
 
@@ -41,7 +42,7 @@ HTML结构
 <script src='../dist/justify.js'></script>
 ```
 
-在确保**页面DOM加载完毕**之后，初始化组件, 比如写在DOMContentLoaded事件处理函数中：
+在确保页面**DOM加载完毕**之后，初始化组件, 比如写在DOMContentLoaded事件处理函数中：
 
 ```js
  window.addEventListener("DOMContentLoaded",function(){
@@ -52,7 +53,7 @@ HTML结构
  },false);
 ```
 
-如果页面已经引入了jquery或zepto等类库，也可以这么些
+如果页面已经引入了jquery或zepto等类库，也可以写在$(document).ready()中：
 
 ```js
 $(function() {
@@ -63,7 +64,7 @@ $(function() {
 });
 ```
 
-当然您还可以直接在页面底部初始化组件
+当然您还可以直接在页面底部初始化组件。
 
 
 ## 设置 options ##
@@ -75,7 +76,7 @@ Justify.apply(ul,options);
 ```
 
 * 参数ul是将要应用本组件的ul标签对应的DOM对象，必传
-* 参数options也可以是一个json对象，通过它对组件的一些功能进行配置, 允许的keys见下表
+* 参数options也可以是一个json对象，可选，通过它对组件的一些功能进行配置, 允许的keys见下表
 
 <table>
 	<tr>
