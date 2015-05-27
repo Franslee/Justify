@@ -10,7 +10,7 @@ Justify 是一个实现inline-block元素两端对齐布局的javascript插件�
 
 ## 用法 ##
 
-HTML结构
+HTML结构，本组件目前只支持对无序列表ul应用：
 
 ```html
 <ul class="justify-list" id="test">
@@ -89,7 +89,7 @@ Justify.apply(ul,options);
 		<td>removeBtmGap</td>
 		<td>boolean</td>
 		<td>false</td>
-		<td>在html5的doctype下，ul列表的底部会产生空隙，本选项用以设置是否移除这些空隙，默认不启用。本组件是通过将ul的font-size值置为0来实现清除这些空隙的。如果ul中的li元素的font-size是从该ul集成来的，那么ul原来的font-size值会通过js直接设置到该li的style属性里。由于内联样式优先级比较高，有可能给之后的开发带来不便，建议小伙伴们直接在css中处理这个问题。</td>
+		<td>在html5的doctype下，ul列表的底部会产生空隙，本选项用以设置是否移除这些空隙，默认不启用。本组件是通过将ul的font-size值置为0来清除这些空隙的。如果ul中的li元素的font-size值是从该ul继承来的，那么ul原来的font-size值会通过js直接设置到该li元素的style属性里。由于内联样式优先级比较高，有可能给之后的开发带来不便，建议小伙伴们直接在css中处理这个问题。</td>
 	</tr>
 </table>
 
