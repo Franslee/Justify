@@ -2,8 +2,10 @@
  
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/franslee/Justify/LICENSE)
 
-Justify 是一个实现inline-block元素两端对齐布局的javascript插件。插件对最后一行对齐做了处理，使最后一行的元素能居左依次与上一行的元素垂直对齐，并支持去除部分DOCTYPE下产生的空隙。插件为移动web编写，支持移动设备旋转事件。不支持桌面IE低版本浏览器。
+Justify 是一个实现inline-block元素两端对齐(两端自适应对齐、均分宽度)布局的javascript插件。插件对最后一行对齐做了处理，使最后一行的元素能居左依次与上一行的元素垂直对齐，并支持去除部分DOCTYPE下产生的空隙。插件为移动web编写，支持移动设备旋转事件。不支持桌面IE低版本浏览器。效果图如下：
 #![github](http://franslee.github.io/Justify/demo.png 'demo png')
+
+两端对齐布局在移动web项目中的需求还是挺多的，我们将元素display属性设置为inline-block,配合text-align:justify，再注意避开一些细节问题，便可以在现代浏览器上实现两端对齐，但是最后一行的处理却是个难题。很多时候我们希望最后一行能居左排列，并且一次与上一行的元素垂直对齐。css3中有一个属性叫text-align-last，可以用来设置最后一行的对齐方式，遗憾的是它的备选值中并没有上面提到的这种方式，另一方面这个属性大部分浏览器还不支持，有严重的兼容性问题。本组件就是为处理这些问题而生。
 
 ## DEMO ##
 请用手机扫描以下二维码,以访问DEMO页面。
