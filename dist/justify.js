@@ -18,14 +18,14 @@
      * @constructor
      */
     function Justify(dom, options) {
-        this.ul = null,
-            this.lis = [],
-            this.extraLis = [],
-            this.preItemTop = 0,
-            this.numPreLine = 0,
-            this.resetLiFontSize = false,
-            this.ulFontSize = 0,
-            this.numLastLine = 0;
+        this.ul = null;
+        this.lis = [];
+        this.extraLis = [];
+        this.preItemTop = 0;
+        this.numPreLine = 0;
+        this.resetLiFontSize = false;
+        this.ulFontSize = 0;
+        this.numLastLine = 0;
 
         this.opt = {
             removeBtmGap: false
@@ -53,12 +53,13 @@
         }
 
         this.numLastLine = this.lis.length % this.numPreLine;
-    }
+    };
 
     /**
      * Fill additional nodes to the last line
      */
     Justify.prototype.fillExtraNode = function() {
+        if (!this.numLastLine) return;
         var newNode = document.createElement('li');
         newNode.className = "extra";
         var blankNode = document.createTextNode(' \n');
@@ -71,7 +72,7 @@
 
         this.ul.appendChild(fragment);
         this.extraLis = this.ul.querySelectorAll('.extra');
-    }
+    };
 
     /**
      * Remove extra nodes
@@ -87,7 +88,7 @@
                     this.ul.childNodes[i + 1].parentNode.removeChild(this.ul.childNodes[i + 1]);
             }
         }
-    }
+    };
 
     /**
      * To register event listeners
@@ -97,7 +98,7 @@
         window.addEventListener('orientationchange', function() {
             _this.init(dom);
         }, false);
-    }
+    };
 
     /**
      * Justify initializer
@@ -125,7 +126,7 @@
         if (this.opt.removeBtmGap) {
             this.ulFontSize = getComputedStyle(this.ul).fontSize;
             this.ul.style.fontSize = '0px';
-            if (this.lis[0].style.fontSize == '') {
+            if (this.lis[0].style.fontSize === '') {
                 this.resetLiFontSize = getComputedStyle(this.lis[0]).fontSize == this.ulFontSize ? true : false;
             }
         }
@@ -133,7 +134,7 @@
         this.calcLastLineNum();
         this.fillExtraNode();
         this.eventsRegister(dom);
-    }
+    };
 
     /**
      * To generate an instance of Justify
@@ -143,7 +144,7 @@
      */
     Justify.apply = function(dom, options) {
         return new Justify(dom, options);
-    }
+    };
 
     if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
         define(function() {
